@@ -1,0 +1,24 @@
+defaults:
+  - _self_
+
+paths:
+  input_dir: data/original_inputs
+  csv_path: data/final_dataset.csv
+  output_dir: data/inference_ready
+
+processing:
+  output_size: 512
+  smoothing_alpha: 0.9
+  crop_body_ratio: 0.75
+  headroom_ratio: 0.18
+  padding_ratio: 0.12
+  min_semantic_scale_ratio: 0.35
+  max_semantic_scale_ratio: 0.90
+
+mediapipe:
+  model_complexity: 1
+  min_detection_confidence: 0.5
+  min_tracking_confidence: 0.5
+
+ffmpeg:
+  loglevel: error

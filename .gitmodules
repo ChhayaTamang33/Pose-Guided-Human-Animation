@@ -1,0 +1,6 @@
+[submodule "external/animateanyone"]
+	path = external/animateanyone
+	url = https://github.com/MooreThreads/Moore-AnimateAnyone.git
+[submodule "external/mimicmotion"]
+	path = external/mimicmotion
+	url = https://github.com/Tencent/MimicMotion.git

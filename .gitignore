@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.env/
+
+# Logs
+*.log
+logs/
+experiments/logs/
+
+# Outputs
+experiments/outputs/
+*.mp4
+*.avi
+*.gif
+
+# Data (keep only structure, not actual data)
+data/
+TED_old/
+
+# Pretrained weights 
+pretrained_weights/
+external/**/pretrained_weights/
+
+# Hydra outputs
+outputs/
+multirun/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Temporary
+*.tmp
+*.cache

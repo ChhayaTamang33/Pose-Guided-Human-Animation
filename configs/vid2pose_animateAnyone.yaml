@@ -1,0 +1,19 @@
+defaults:
+  - _self_
+
+paths:
+  video_root: data/inference_ready
+  pose_root: data/dw_pose
+  log_file: experiments/logs/vid2pose_log.json
+
+processing:
+  file_pattern: "*.mp4"
+  force_rerun: false
+  resume: false
+
+runtime:
+  use_cuda_if_available: true
+
+hydra:
+  job:
+    chdir: False

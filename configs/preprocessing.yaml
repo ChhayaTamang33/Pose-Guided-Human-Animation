@@ -1,0 +1,5 @@
+# combines the stage 1 and 2 yaml
+defaults:
+  - preprocessing_stage_1
+  - preprocessing_stage_2
+  - _self_

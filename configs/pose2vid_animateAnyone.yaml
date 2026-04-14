@@ -1,0 +1,64 @@
+defaults:
+  - _self_
+
+hydra:
+  run:
+    dir: .
+
+paths:
+  video_dir: data/inference_ready        # original cropped videos
+  pose_dir: data/dw_pose                # DWpose outputs
+  output_dir: experiments/outputs/animateanyone_output
+  log_path: experiments/logs/pose2vid_log.json
+
+model:
+  vae_path: external/animateanyone/pretrained_weights/sd-vae-ft-mse
+  pretrained_base: external/animateanyone/pretrained_weights/stable-diffusion-v1-5/
+  motion_module: external/animateanyone/pretrained_weights/motion_module.pth
+  image_encoder: external/animateanyone/pretrained_weights/image_encoder
+
+  denoising_unet: external/animateanyone/pretrained_weights/denoising_unet.pth
+  reference_unet: external/animateanyone/pretrained_weights/reference_unet.pth
+  pose_guider: external/animateanyone/pretrained_weights/pose_guider.pth
+
+unet_additional_kwargs:
+  use_inflated_groupnorm: true
+  unet_use_cross_frame_attention: false 
+  unet_use_temporal_attention: false
+  use_motion_module: true
+  motion_module_resolutions:
+  - 1
+  - 2
+  - 4
+  - 8
+  motion_module_mid_block: true 
+  motion_module_decoder_only: false
+  motion_module_type: Vanilla
+  motion_module_kwargs:
+    num_attention_heads: 8
+    num_transformer_block: 1
+    attention_block_types:
+    - Temporal_Self
+    - Temporal_Self
+    temporal_position_encoding: true
+    temporal_position_encoding_max_len: 32
+    temporal_attention_dim_div: 1
+
+scheduler:
+  beta_start: 0.00085
+  beta_end: 0.012
+  beta_schedule: "linear"
+  clip_sample: false
+  steps_offset: 1
+
+inference:
+  dtype: torch.float16
+  width: 512
+  height: 512
+  steps: 30
+  cfg: 3.5
+  seed: 42
+  chunk_size: 48
+
+runtime:
+  device: cuda

@@ -1,0 +1,23 @@
+paths:
+  gt_root: data/inference_ready
+  animate_root: experiments/outputs/animateAnyone_output
+  mimic_root: experiments/outputs/mimicmotion_output
+
+  output_csv: experiments/outputs/video_metrics.csv
+  output_dir: experiments/outputs/evaluation
+
+temporal_jitter:
+  enabled: true
+  delta: 2
+  window_size: 5
+  labels: ["AnimateAnyone", "MimicMotion"]
+
+video_metrics:
+  enabled: true
+
+system:
+  device: cuda
+
+hydra:
+  job:
+    chdir: False
