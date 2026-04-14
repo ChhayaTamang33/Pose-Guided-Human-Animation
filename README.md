@@ -28,23 +28,23 @@ The project is designed for **research reproducibility**, **scalability**, and *
 ## Installation
 
 ### 1. Clone repository
-
-git clone https://github.com/<your-username>/pose-guided-human-animation.git
+```bash
+git clone https://github.com/ChhayaTamang33/Pose-Guided-Human-Animation.git
 cd pose-guided-human-animation
-
+```
 ## Setup
-
+```bash
 bash setup.sh
-
+```
 ---
 
 ## 🔷 Usage
 
 ### Preprocessing
 
-
+```bash
 python -m pgha.pipeline.run_preprocessing
-
+```
 ### Pose Extraction (DWpose)
 
 ```bash
@@ -57,6 +57,10 @@ python -m pgha.pipeline.run_pose2vid_animateAnyone
 ### MimicMotion Inference
 ```bash
 python -m pgha.pipeline.run_inference_mimicMotion
+```
+### Run Evaluation
+```bash
+python -m pgha.pipeline.run_evaluation
 ```
 ---
 
@@ -82,4 +86,4 @@ python -m pgha.pipeline.run_pose2vid_animateAnyone processing.chunk_size=16
 ## 🔷 Notes
 - Pretrained weights are downloaded via setup.sh
 - External repositories are included as submodules
-
+- Preprocessing is split into two stages which can be run together or separately, depending on the needs.
